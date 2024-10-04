@@ -40,6 +40,13 @@ def combine_recommendations(user_id, article_id, cosine_sim, df, cf_model, top_n
     combined_recs = set(content_recs) | set(cf_recs)
     return list(combined_recs)[:top_n]
 
+#Define a route for the home page
+@app.route('/')
+def home():
+    return 'Welcome to the recommender system!'
+
+
+
 # Define a route for collaborative filtering recommendations
 @app.route('/collaborative', methods=['GET'])
 def collaborative():
